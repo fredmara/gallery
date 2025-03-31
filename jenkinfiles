@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    environment {
+        NODEJS_HOME = '/usr/bin/node'
+        PATH = "${NODEJS_HOME}:${env.PATH}"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/fredmara/gallery.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Deploy to Render') {
+            steps {
+                sh 'node server.js'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Deployment Successful!'
+        }
+        failure {
+            echo 'Deployment Failed!'
+        }
+    }
+}
