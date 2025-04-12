@@ -33,12 +33,12 @@ pipeline{
         }
 
        
-	   // stage("Deploy to Render") {
-           // steps {
-                //echo 'Deploying application to Render...'
-               // sh "curl -X POST ${RENDER_DEPLOY_HOOK}"
-            //}
-        //}
+	    stage("Deploy to Render") {
+            steps {
+                echo 'Deploying application to Render...'
+                sh "curl -X POST ${RENDER_DEPLOY_HOOK}"
+            }
+        }
 
     }
 
