@@ -7,9 +7,9 @@ pipeline{
 
     environment {
         EMAIL_RECIPIENT = 'fredrick.owino2@student.moringaschool.com'
-        //RENDER_DEPLOY_HOOK = ""
+        RENDER_DEPLOY_HOOK = "https://api.render.com/deploy/srv-cvt2l4pr0fns73dujkg0?key=YNOBcl-OJ3M"
 		//SLACK_TOKEN = ""
-		//WEBSITE_URL = ""
+		WEBSITE_URL = "https://gallery-7ulj.onrender.com/"
     }
 
 
